@@ -58,7 +58,7 @@ LittleQmath/
 └── README.md
 ```
 
-- `Src/` 与 `Inc/` 下的 `.bak` 文件为历史备份，**不要加入工程**。
+- `Inc/` 与 `Src/` 中的文件按族一一对应，裁剪时成对增删即可。
 - 每个功能族都有独立 `.h`/`.c`，按需裁剪即可减小编译时间与代码体积。
 
 ## 2. 快速开始
@@ -498,7 +498,7 @@ arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O2 -std=c99 -I Inc \
 ### 8.3 Keil MDK（AC5 / AC6）
 
 1. Options for Target → C/C++ → Include Paths 添加 `..\Inc`；
-2. 把 `Src/*.c` 全部加入工程（不要加入 `*.bak`）；
+2. 把 `Src/*.c` 全部加入工程；
 3. AC5：勾选 **C99 Mode**；AC6：默认语言标准即可；
 4. 需要 ARM `__ssat/__usat` 快路径时保持 `LQ_ARM_DSP_SSAT_ENABLE = 1`（默认，`armclang`/`armcc` 均支持内建）；
 5. 库不依赖 `printf/malloc`，是否使用 MicroLIB 均可。
